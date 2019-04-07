@@ -72,5 +72,15 @@ end
 # OPTIONAL
 
 def customer_can_afford_pet(customer, new_pet_hash)
-  new_pet_hash[:price] < customer[:cash]
+  return new_pet_hash[:price] < customer[:cash]
+end
+
+def sell_pet_to_customer(hash, pet, customer)
+  if pet != nil && customer_can_afford_pet(customer, pet) 
+      hash[:pets].delete(pet)
+      customer[:pets].push(pet)
+      increase_pets_sold(hash, 1)
+      remove_customer_cash(customer, pet[:price])
+      add_or_remove_cash(hash, pet[:price])
+  end
 end
