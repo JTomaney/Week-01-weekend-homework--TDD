@@ -26,7 +26,7 @@ def pets_by_breed(hash, breed)
   list_of_pets = []
   for pet in hash[:pets]
     if pet[:breed] == breed
-      list_of_pets.push(pet[:name])
+      list_of_pets.push(pet)
     end
   end
   return list_of_pets
@@ -76,7 +76,7 @@ def customer_can_afford_pet(customer, new_pet_hash)
 end
 
 def sell_pet_to_customer(hash, pet, customer)
-  if pet != nil && customer_can_afford_pet(customer, pet) 
+  if pet != nil && customer_can_afford_pet(customer, pet)
       hash[:pets].delete(pet)
       customer[:pets].push(pet)
       increase_pets_sold(hash, 1)

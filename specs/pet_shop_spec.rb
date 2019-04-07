@@ -216,5 +216,5 @@ class TestPetShop < Minitest::Test
     assert_equal(50, customer_cash(customer))
     assert_equal(1000, total_cash(@pet_shop))
   end
-
+  
 end
